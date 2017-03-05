@@ -1,0 +1,28 @@
+{
+  "name": "elm-base-repo",
+  "version": "0.0.0",
+  "description": "Elm module",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "elm-doc-test && elm-test init && elm-test tests/Doc/Main.elm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovasoa/elm-base-repo.git"
+  },
+  "keywords": [
+  ],
+  "author": "",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/lovasoa/elm-base-repo/issues"
+  },
+  "homepage": "https://github.com/lovasoa/elm-base-repo#readme",
+  "devDependencies": {
+    "elm": "^0.18.0",
+    "elm-doc-test": "^2.2.3",
+    "elm-test": "^0.18.2"
+  }
+}
