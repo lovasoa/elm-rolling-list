@@ -2,15 +2,16 @@ module RollingList exposing (..)
 
 {-| Module description
 
-## Definition
-@docs MyType
-
 ## Functions
-@docs myFunction
+@docs fromList, roll, current, toList
+
+## Definition
+@docs RollingList
+
 -}
 
 
-{-| Type
+{-| The rolling list type.
 -}
 type alias RollingList a =
     { previous : List a
