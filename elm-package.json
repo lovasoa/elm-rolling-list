@@ -1,7 +1,7 @@
 {
-    "version": "0.0.0",
-    "summary": "Base repository",
-    "repository": "https://github.com/lovasoa/elm-base-repo.git",
+    "version": "1.0.0",
+    "summary": "A circular buffer (infinite cyclic list)",
+    "repository": "https://github.com/lovasoa/elm-rolling-list.git",
     "license": "BSD3",
     "source-directories": [
         "./src/"
