@@ -40,8 +40,8 @@ toList { previous, next } =
 
 {-| Return a New RollingList, with the current element set to the next element
 
-    >>> roll (fromList [1,2,3])
-    fromList [2,3,1]
+    >>> toList (roll (fromList [1,2,3]))
+    [2,3,1]
 
     >>> current (roll (fromList [1,2,3]))
     Just 2
