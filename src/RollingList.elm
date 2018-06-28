@@ -2,10 +2,14 @@ module RollingList exposing (..)
 
 {-| Module description
 
+
 ## Functions
-@docs fromList, roll, current, toList
+
+@docs fromList, roll, rollBack, current, toList
+
 
 ## Definition
+
 @docs RollingList
 
 -}
@@ -23,6 +27,7 @@ type alias RollingList a =
 
     >>> toList (fromList [1,2,3])
     [1,2,3]
+
 -}
 fromList : List a -> RollingList a
 fromList l =
@@ -33,6 +38,7 @@ fromList l =
 
     >>> toList (fromList [1,2])
     [1,2]
+
 -}
 toList : RollingList a -> List a
 toList { previous, next } =
@@ -46,24 +52,47 @@ toList { previous, next } =
 
     >>> current (roll (fromList [1,2,3]))
     Just 2
+
 -}
 roll : RollingList a -> RollingList a
 roll current =
-    case ( List.head current.next, List.tail current.next ) of
-        ( Nothing, _ ) ->
+    case current.next of
+        [] ->
             { previous = [], next = List.reverse current.previous }
 
-        ( Just element, Just tail ) ->
+        element :: tail ->
             { previous = element :: current.previous, next = tail }
 
-        _ ->
-            current
+
+{-| Return a New RollingList, with the current element set to the previous element
+
+    >>> toList (roll (fromList [1,2,3]))
+    [3,1,2]
+
+    >>> current (roll (fromList [1,2,3]))
+    Just 3
+
+-}
+rollBack : RollingList a -> RollingList a
+rollBack current =
+    case current.previous of
+        [] ->
+            case List.reverse current.next of
+                elem :: list ->
+                    { previous = list, next = [ elem ] }
+
+                [] ->
+                    { previous = [], next = [] }
+
+        element :: tail ->
+            { previous = tail, next = element :: current.next }
 
 
 {-| Returns the currently selected element in the list
 
     >>> current (fromList [1,2,3])
     Just 1
+
 -}
 current : RollingList a -> Maybe a
 current =
