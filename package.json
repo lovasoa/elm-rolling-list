@@ -6,7 +6,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "elm-doc-test && elm-test init && elm-test tests/Doc/Main.elm"
+    "test": "elm-doc-test && elm-test init && elm-test tests/Doc/"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   "homepage": "https://github.com/lovasoa/elm-base-repo#readme",
   "devDependencies": {
     "elm": "^0.18.0",
-    "elm-doc-test": "^2.2.3",
-    "elm-test": "^0.18.2"
-  }
+    "elm-doc-test": "^4.0.0",
+    "elm-test": "^0.18.12"
+  },
+  "dependencies": {}
 }

@@ -25,8 +25,8 @@ type alias RollingList a =
 
 {-| Create a rolling list from a normal list
 
-    >>> toList (fromList [1,2,3])
-    [1,2,3]
+    toList (fromList [1,2,3])
+    --> [1,2,3]
 
 -}
 fromList : List a -> RollingList a
@@ -36,8 +36,8 @@ fromList l =
 
 {-| Create a normal list from a rolling list
 
-    >>> toList (fromList [1,2])
-    [1,2]
+    toList (fromList [1,2])
+    --> [1,2]
 
 -}
 toList : RollingList a -> List a
@@ -47,11 +47,11 @@ toList { previous, next } =
 
 {-| Return a New RollingList, with the current element set to the next element
 
-    >>> toList (roll (fromList [1,2,3]))
-    [2,3,1]
+    toList (roll (fromList [1,2,3]))
+    --> [2,3,1]
 
-    >>> current (roll (fromList [1,2,3]))
-    Just 2
+    current (roll (fromList [1,2,3]))
+    --> Just 2
 
 -}
 roll : RollingList a -> RollingList a
@@ -66,11 +66,11 @@ roll current =
 
 {-| Return a New RollingList, with the current element set to the previous element
 
-    >>> toList (rollBack (fromList [1,2,3]))
-    [2,3,1]
+    toList (rollBack (fromList [1,2,3]))
+    --> [3,1,2]
 
-    >>> current (rollBack (fromList [1,2,3]))
-    Just 2
+    current (rollBack (fromList [1,2,3]))
+    --> Just 3
 
 -}
 rollBack : RollingList a -> RollingList a
@@ -90,8 +90,8 @@ rollBack current =
 
 {-| Returns the currently selected element in the list
 
-    >>> current (fromList [1,2,3])
-    Just 1
+    current (fromList [1,2,3])
+    --> Just 1
 
 -}
 current : RollingList a -> Maybe a
