@@ -66,11 +66,11 @@ roll current =
 
 {-| Return a New RollingList, with the current element set to the previous element
 
-    >>> toList (roll (fromList [1,2,3]))
-    [3,1,2]
+    >>> toList (rollBack (fromList [1,2,3]))
+    [2,3,1]
 
-    >>> current (roll (fromList [1,2,3]))
-    Just 3
+    >>> current (rollBack (fromList [1,2,3]))
+    Just 2
 
 -}
 rollBack : RollingList a -> RollingList a
