@@ -3,3 +3,4 @@ node_modules/
 tests/Doc/
 tests/Example.elm
 tests/elm-package.json
+./tests/VerifyExamples

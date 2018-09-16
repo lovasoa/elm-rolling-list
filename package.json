@@ -6,7 +6,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "elm-doc-test && elm-test init && elm-test tests/Doc/"
+    "test": "elm-verify-examples"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,8 @@
   },
   "homepage": "https://github.com/lovasoa/elm-base-repo#readme",
   "devDependencies": {
-    "elm": "^0.18.0",
-    "elm-doc-test": "^4.0.0",
-    "elm-test": "^0.18.12"
-  },
-  "dependencies": {}
+    "elm": "^0.19.0",
+    "elm-test": "^0.19.0-beta4",
+    "elm-verify-examples": "^3.0.0"
+  }
 }

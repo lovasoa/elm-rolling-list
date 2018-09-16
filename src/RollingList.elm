@@ -1,4 +1,11 @@
-module RollingList exposing (..)
+module RollingList exposing (
+    fromList,
+    toList,
+    roll,
+    rollBack,
+    current,
+    RollingList
+    )
 
 {-| Module description
 
@@ -55,13 +62,13 @@ toList { previous, next } =
 
 -}
 roll : RollingList a -> RollingList a
-roll current =
-    case current.next of
+roll rollingList =
+    case rollingList.next of
         [] ->
-            { previous = [], next = List.reverse current.previous }
+            { previous = [], next = List.reverse rollingList.previous }
 
         element :: tail ->
-            { previous = element :: current.previous, next = tail }
+            { previous = element :: rollingList.previous, next = tail }
 
 
 {-| Return a New RollingList, with the current element set to the previous element
@@ -74,10 +81,10 @@ roll current =
 
 -}
 rollBack : RollingList a -> RollingList a
-rollBack current =
-    case current.previous of
+rollBack rollingList =
+    case rollingList.previous of
         [] ->
-            case List.reverse current.next of
+            case List.reverse rollingList.next of
                 elem :: list ->
                     { previous = list, next = [ elem ] }
 
@@ -85,7 +92,7 @@ rollBack current =
                     { previous = [], next = [] }
 
         element :: tail ->
-            { previous = tail, next = element :: current.next }
+            { previous = tail, next = element :: rollingList.next }
 
 
 {-| Returns the currently selected element in the list
