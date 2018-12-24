@@ -95,5 +95,9 @@ rollBack rollingList =
 
 -}
 current : RollingList a -> Maybe a
-current =
-    List.head << .next
+current rollingList = 
+    case rollingList.next of 
+        [] -> List.head <| List.reverse rollingList.previous
+        
+        element :: _ ->
+          Just element
