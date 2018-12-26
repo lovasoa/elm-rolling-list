@@ -3,7 +3,7 @@
     "name": "lovasoa/elm-rolling-list",
     "summary": "A circular buffer (infinite cyclic list)",
     "license": "BSD-3-Clause",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "exposed-modules": [
         "RollingList"
     ],
