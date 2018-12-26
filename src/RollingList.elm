@@ -53,12 +53,20 @@ toList { previous, next } =
     current (roll (fromList [1,2,3]))
     --> Just 2
 
+    current (fromList [1, 2] |> roll |> roll)
+    --> Just 1
+
+    current (fromList [1] |> roll |> roll |> roll)
+    --> Just 1
 -}
 roll : RollingList a -> RollingList a
 roll rollingList =
     case rollingList.next of
         [] ->
             { previous = [], next = List.reverse rollingList.previous }
+
+        [ element ] -> {- avoid leaving `next` empty -}
+            { previous = [], next = List.reverse (element :: rollingList.previous) }
 
         element :: tail ->
             { previous = element :: rollingList.previous, next = tail }
@@ -95,6 +103,7 @@ rollBack rollingList =
 
     current (fromList [])
     --> Nothing
+
 -}
 current : RollingList a -> Maybe a
 current =
