@@ -93,6 +93,8 @@ rollBack rollingList =
     current (fromList [1,2,3])
     --> Just 1
 
+    current (fromList [])
+    --> Nothing
 -}
 current : RollingList a -> Maybe a
 current =
